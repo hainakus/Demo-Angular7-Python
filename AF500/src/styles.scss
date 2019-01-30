@@ -1,0 +1,197 @@
+/* You can add global styles to this file, and also import other style files */
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+ $main-color :#410080 !important;
+ $letter-color : #FFF !important;
+ $background:  #F0F0F0 !important;
+ $gray : grayscale($color: #666) !important;
+
+ body {
+    overflow-x: hidden;
+  }
+  
+  #wrapper {
+    padding-top: 4.4rem;  
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  
+  #wrapper.toggled {
+    padding-left: 250px;
+  }
+  
+  #sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: $main-color;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  
+  #wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+  }
+  
+  #page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+  }
+  
+  #wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+  }
+  
+  
+  /* Sidebar Styles */
+  
+  .sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+  }
+  
+  .sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+  }
+  
+  .sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .sidebar-nav li a:active, .sidebar-nav li a:focus {
+    text-decoration: none;
+  }
+  
+  .sidebar-nav>.sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+  }
+  
+  .sidebar-nav>.sidebar-brand a {
+    color: #999999;
+  }
+  
+  .sidebar-nav>.sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+  }
+  
+  @media(min-width:768px) {
+    #wrapper {
+      padding-left: 0;
+    }
+    #wrapper.toggled {
+      padding-left: 250px;
+    }
+    #sidebar-wrapper {
+      width: 0;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+      width: 250px;
+    }
+    #page-content-wrapper {
+      padding: 20px;
+      position: relative;
+    }
+    #wrapper.toggled #page-content-wrapper {
+      position: relative;
+      margin-right: 0;
+    }
+  }
+
+  html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+body{
+    background-color: $background; //#242C34;
+    
+}
+h1, h2, h3 ,h4 ,h5 ,h6{
+    color: #1f2836;
+}
+p, small {
+    color: $gray;
+    text-transform: uppercase;
+}
+i{
+    color: $background;
+}
+small{
+    float: right;
+    font-size: .8rem;
+    color: $main-color;
+}
+nav{
+    //border-bottom: 1px solid $letter-color;
+    text-align: center;
+}
+.bg-dark{
+    background-color: $main-color;
+}
+section{
+    margin-top: 15%;
+}
+.list{display: inline-block;margin-bottom: 10px;}
+.media {
+    background: $letter-color;
+    border-bottom: 0px solid $main-color;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    transition: box-shadow 0.3s ease-in-out;
+    transition: border-bottom 0.5s ease;
+}
+
+.media:hover {
+    
+    //border-bottom: 1px solid $main-color;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.list:hover::after { transform: scaleX(1); }
+.list::after {
+    display:block;
+    content: '';
+    border-bottom: solid 2px $main-color;  
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+  }
+.list.fromRight::after{ transform-origin:100% 50%; }
+.card, .media {
+    background-color: transparent;
+    
+}
+
+
+.primary-bg {
+    background-color: $gray;
+}
+

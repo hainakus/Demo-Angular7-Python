@@ -1,0 +1,43 @@
+
+    <div class="modal fade" id="{{ object.sample_id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{ object.experiment_name }}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form #f="ngForm" (ngSubmit)="updateFaux()">
+                    <div class="form-group">
+                      <label for="filename">Filename</label>
+                      <input type="text" class="form-control" id="filename" [(ngModel)]="object.filename" name="filename" required>
+                    </div>
+               
+                    <div class="form-group">
+                      <label for="fauxness">Fauxness</label>
+                      <input type="text" class="form-control" id="fauxness" [(ngModel)]="object.fauxness" name="fauxness">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experiment_name">Expirement Name</label>
+                        <input type="text" class="form-control" id="experiment_name" [(ngModel)]="object.experiment_name" name="experiment_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="moeda">Category Guess</label>
+                        <select  class="form-control" [(ngModel)]="object.category_guess" name="category_guess" id="category_guess">
+                          <option *ngFor="let option of cats" [value]="option"
+                          >{{ option }}
+                          </option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+               
+                  </form>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+

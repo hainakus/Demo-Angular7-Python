@@ -1,0 +1,67 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="javascript:void(0)"><img src="https://amyris.com/wp-content/themes/amyris/images/bp_amyris-logo-t2.png" height="44px" alt="Amyris"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mx-auto">
+              <li class="nav-item active">
+                <h3 class="primary text-center"> Faux Samples {{ selectedFauxFiles?.length }}</h3> 
+              </li>  
+            </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a href="javascript:void(0)" (click)="sortByFauxValue()"><i class="material-icons" [innerText]="sort ? 'swap_vert' : 'swap_vert_circle'"></i></a>
+            </li>
+            <li class="nav-item active">
+                <a href="javascript:void(0)" (click)="toogleSidebar()">
+                    <i class="material-icons" > menu </i>
+                </a>   
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+ <div #sidebar id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+            </li>
+            <li>
+                <div class="range">
+                    <input type="range" name="range" min="0.00" max="0.99" step="0.01" value="0.50"  [(ngModel)]="filterValue" (ngModelChange)="filterByFauxValue($event)">
+                </div>
+            </li>
+            <li>
+                <a href="javascript:void(0)" (click)="filterByCategory('All')">All Fauxes</a>
+            </li>
+            <li *ngFor="let cat of cats">
+                <a href="javascript:void(0)" (click)="filterByCategory(cat)">{{ cat }} Faux</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid listing">  
+            <div class="col-lg-12 col-xs-12 order-md-1" >
+                <div class="list fromRight col-12" *ngFor="let item of selectedFauxFiles">
+                    <div class="media p-3"> 
+                     <a href="javascript:void(0)" (click)="deleteFaux(item)"><i class="material-icons">clear</i></a>   
+                    <div class="mr-3 mt-3 rounded-circle signal" style="width:60px; height: 60px;"><span>{{ getPercentage(item.fauxness) }}</span></div>
+                    <a href="javascript:void(0)" class="media-body" (click)="onFauxSelect(item.sample_id)">
+                        <h4>{{ item.experiment_name }} <small> {{ item.category_guess }}</small></h4>
+                        <p>{{ item.filename }}</p>
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
